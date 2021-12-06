@@ -25,6 +25,17 @@ console.log(buf2.toString('utf8', 0, 5))
 console.log(buf2.toString(undefined, 0, 26))
 
 const buf3 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5])
-const json = buf3.toJSON()
+const json = JSON.stringify(buf3)
 
 console.log(json)
+
+const copy = JSON.parse(json, (key, value) => {
+    return value && value.type === 'Buffer' ? Buffer.from(value.data) : value
+})
+
+console.log(copy)
+
+const buffer1 = Buffer.from('w3cschool编程师')
+const buffer2 = Buffer.from('www.w3cschool.cn')
+const buffer3 = Buffer.concat([buffer1, buffer2])
+console.log(buffer3.toString())
