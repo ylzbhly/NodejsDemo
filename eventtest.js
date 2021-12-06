@@ -40,3 +40,7 @@ console.log(eventListeners + ' 个监听器监听连接事件。')
 emitter.emit('connection')
 
 console.log('程序执行完毕')
+
+emitter.addListener('error', err => console.log(err))
+
+emitter.emit('error')
