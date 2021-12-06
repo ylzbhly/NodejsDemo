@@ -6,7 +6,7 @@ console.log(data.toString())
 console.log("程序执行结束！")
 
 fs.readFile('input.txt', (err,data) => {
-    if(err) return console.error(err)
+    if(err) return console.error(err.stack)
     console.log(data.toString())
 })
 
