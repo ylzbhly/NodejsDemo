@@ -8,7 +8,7 @@ const writeStream = fs.createWriteStream('output.txt')
 writeStream.write(data, 'UTF8')
 
 // 标记文件末尾
-// writeStream.end()
+writeStream.end()
 
 // 处理流事件 --> data, end and error
 writeStream.on('finish', () => console.log("写入完成"))
